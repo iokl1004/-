@@ -9,7 +9,7 @@
     align-items: center;
   
     padding: 4px 64px;
-    /* background-color: black; */
+    background-color: black;
     position: fixed;
     left: 0;
     right: 0;
@@ -46,6 +46,7 @@
   
   .option__list li a {
     font-size: 26px;
+    font-weight : bold;
     padding: 4px 12px;
     color: red;
   }

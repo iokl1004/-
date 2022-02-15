@@ -1,7 +1,19 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom"
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { listPageReLoading, focusNav } from "../atom/Atoms";
 import styles from "./Nav.module.css";
 import navList from "./NavList";
 
 function Nav() {
+
+    const pageReLoading = useSetRecoilState(listPageReLoading);
+    const [focusPath, setFocusPath] = useRecoilState(focusNav);
+
+    const optionOnClick = () => {
+        pageReLoading(true);
+    }
+
     return (
         <div>
             <nav className={styles.container}>
@@ -11,18 +23,15 @@ function Nav() {
                     </a>
                 </div>
                 <ul className={styles.option__list}>
-                    <li>    
-                        <a>High Rating</a>
-                    </li>
-                    <li>
-                        <a>Romance</a>
-                    </li>
-                    <li>
-                        <a>Thriller</a>
-                    </li>
-                    <li>
-                        <a>Animation</a>
-                    </li>
+                    {navList.map(({ title, path }) => {
+                        return (
+                            <li>
+                                <Link to={`/page/${path}/1`}
+                                    onClick={focusPath !== path ? optionOnClick : null}
+                                >{title}</Link>
+                            </li>
+                        )
+                    })}
                 </ul>
                 <ul className={styles.icon__list}>
                     <li>
