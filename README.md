@@ -3,7 +3,7 @@
 * 해당 프로젝트 터미널창에서 npm i gh-pages 설치
 * package.json 파일 맨 밑에 가서, "homepage" : "주소" 추가할것!
   * 주소에는 대문자가 들어가면 안됨, 깃허브 양식에 맞게 입력해야함
-  * https://유저이름.guthub.id/리포지토리이름
+  * https://유저이름.guthub.io/리포지토리이름
   * 예) "homepage": "https://iokl1004.github.io/react-movie"
 * scripts 항목에 가서 아래 코드 추가!
   * "deploy": "gh-pages -d build",
